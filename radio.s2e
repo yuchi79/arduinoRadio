@@ -1,7 +1,7 @@
 ﻿{   
    "extensionName": "Radio TEA5767",
    "description": "A mblock extension for TEA5767 Radio Module",
-   "version": "1.0",
+   "version": "1.3",
    "author": "Mia(Lee Hyunjeong)",
    "homepage": "https://github.com/yuchi79/arduinoRadio",
    "sort":0,
@@ -17,6 +17,31 @@
             "TEA5767 Radio;\n\ndouble old_frequency;\ndouble frequency;\nint search_mode = 0;\nint search_direction;\nunsigned long last_pressed;\nunsigned char buf[5];\nint stereo;\nint signal_level;\ndouble current_freq;\nunsigned long current_millis = millis();\nint inByte;\nint flag=0;\n\n",
          "work":"",
          "loop":"if (search_mode == 1) {\nif (Radio.process_search (buf, search_direction) == 1) {\nsearch_mode = 0;\n}\n}\n"
+         }],
+      ["w","Load default Frequency", "loadDefault",{
+         "encode":"",
+         "setup":"array_index = 0;\n",
+         "inc":"",
+         "def":
+            "double default_freq[] = {89.1, 89.7, 91.9, 93.1, 93.9, 94.5, 95.1, 95.9, 96.7, 97.3, 98.1, 99.1, 101.3, 101.9, 102.7, 103.5, 104.5, 104.9, 105.3, 106.1, 106.9, 107.7};\nint array_index = 0;\n",
+         "work":"",
+         "loop":""
+         }],
+      ["w","Next Frequency", "nextFreq",{
+         "encode":"",
+         "setup":"",
+         "inc":"",
+         "def":"",
+         "work":"if (array_index < sizeof(default_freq)/sizeof(double)-1) array_index++;\nelse array_index = 0;\nRadio.set_frequency(default_freq[array_index]);\n",
+         "loop":""
+         }],
+      ["w","Prev Frequency", "prevFreq",{
+         "encode":"",
+         "setup":"",
+         "inc":"",
+         "def":"",
+         "work":"if (array_index > 0) array_index--;\nelse array_index = sizeof(default_freq)/sizeof(double)-1;\nRadio.set_frequency(default_freq[array_index]);\n",
+         "loop":""
          }],
       ["w","Set Freq as %n","setFreq", 93.9, {
          "encode":"",
@@ -34,12 +59,12 @@
          "work":"last_pressed = current_millis;\nsearch_mode = 1;\nsearch_direction = TEA5767_SEARCH_DIR_UP;\nRadio.search_up(buf);\n\n",
          "loop":""
          }],
-      ["w","go down to next station","upStation", {
+      ["w","go down to next station","downStation", {
          "encode":"",
          "setup":"",
          "inc":"",
          "def":"",
-         "work":"last_pressed = current_millis;\nsearch_mode = 1;\nsearch_direction = TEA5767_SEARCH_DIR_DOWN;\nRadio.search_up(buf);\n\n",
+         "work":"last_pressed = current_millis;\nsearch_mode = 1;\nsearch_direction = TEA5767_SEARCH_DIR_DOWN;\nRadio.search_down(buf);\n\n",
          "loop":""
          }],
       ["R", "read frequency", "readFreq", {
@@ -49,7 +74,7 @@
          "work":"floor (Radio.frequency_available (buf) / 100000 + .5) / 10",
          "loop":""
          }],
-      ["B", "read stereo", "readFreq", {
+      ["B", "read stereo", "readStereo", {
          "setup":"",
          "inc":"",
          "def":"",
@@ -80,15 +105,16 @@
    "translators":{
      "ko":{
          "Initialize Radio":"라디오 초기화하기",
+         "Load default Frequency":"기본 주파수 사용하기", 
          "Set Freq as %n":"주파수를 %n로 정하기",
          "go up to next station":"상위 주파수 찾기",
          "go down to next station":"하위 주파수 찾기",
+         "Next Frequency":"다음 주파수로 설정",
+         "Prev Frequency":"이전 주파수로 설정",
          "read frequency":"현재주파수",
          "read stereo":"스테레오",
          "searching":"찾는중?",
-         "read status":"상태 읽기 가능?",
-         "FORWARD":"전진",
-         "BACKWARD":"후진"
+         "read status":"상태 읽기 가능?"
       }
    }
 }
