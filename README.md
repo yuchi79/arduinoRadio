@@ -10,7 +10,7 @@ http://download.makeblock.com/mblock/mblock_extension_guide.pdf
 1. arduino용 C 소스 동작 확인
 2. Demo Extension 설치 후 직접 해당 위치로 이동하여 파일수정 
 * Mac : /Users/cnapman/Library/Application Support/com.makeblock.Scratch3.4.12/Local Store/mBlock/libraries
-* Windows : 
+* Windows : c:\Users\Lenovo\AppData\Roaming\com.makeblock.Scratch3.4.12\Local Store\mBlock\libraries\
 3. 소스 수정 
 * src : 블록 코딩에서 필요한 블록 작성 시 필요한 라이브러리의 cpp 소스 코드 
 * js : 자바스크립트 소스로 스크래치에 바로 붙이는거 같긴 하지만 정확히 파악못함. 아두이노 업로드 형태로 사용할 경우는 필요없음. 
@@ -26,5 +26,15 @@ http://download.makeblock.com/mblock/mblock_extension_guide.pdf
 단, SEEK 기능은 주파수를 찾는 기능이기 때문에 난청 지역에서는 무한루프처럼 돌 수 있음. 
 
 ![tea5767_example](https://user-images.githubusercontent.com/8978613/68285637-fe666400-00c2-11ea-8ba8-253687213590.png)
+
+
+## 예시 코드2 
+
+* 난청 지역에서 SEEK 이 안될 경우 서울 지역 기본 주파수를 임의로 등록하여 이전, 다음 주파수로 설정 
+* 6핀 입력 버튼 누르면 다음 주파수 설정 
+* 7핀 입력 버튼 누르면 이전 주파수 설정 
+* 주파수를 저장 / 삭제 하는 기능은 추후 업데이트 예정 
+
+![tea5767_example2](https://user-images.githubusercontent.com/8978613/72077427-976f6080-333a-11ea-8c83-e1b5b15390ac.png)
 
 
