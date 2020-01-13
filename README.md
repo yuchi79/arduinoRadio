@@ -13,7 +13,7 @@ http://download.makeblock.com/mblock/mblock_extension_guide.pdf
 * Windows : c:\Users\Lenovo\AppData\Roaming\com.makeblock.Scratch3.4.12\Local Store\mBlock\libraries\
 3. 소스 수정 
 * src : 블록 코딩에서 필요한 블록 작성 시 필요한 라이브러리의 cpp 소스 코드 
-* js : 자바스크립트 소스로 스크래치에 바로 붙이는거 같긴 하지만 정확히 파악못함. 아두이노 업로드 형태로 사용할 경우는 필요없음. 
+* js : 자바스크립트 소스로 아두이노 업로드 형태로 사용할 경우는 필요없음. 
 * *.s2e : 각 블록 마다 c 코드를 작성하여 블록 호출 시 마다 설정 할수 있는 함수 작성
 4. 위 소스를 zip 파일로 압축 
 5. mBlock Extension Center에 github 계정으로 로그인 
