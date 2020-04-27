@@ -10,7 +10,7 @@ http://download.makeblock.com/mblock/mblock_extension_guide.pdf
 1. arduino용 C 소스 동작 확인
 2. Demo Extension 설치 후 직접 해당 위치로 이동하여 파일수정 
 * Mac : /Users/[username]/Library/Application Support/com.makeblock.Scratch3.4.12/Local Store/mBlock/libraries
-* Windows : c:\Users\[username]\AppData\Roaming\com.makeblock.Scratch3.4.12\Local Store\mBlock\libraries\
+* Windows : c:\Users\\[username]\AppData\Roaming\com.makeblock.Scratch3.4.12\Local Store\mBlock\libraries\
 3. 소스 수정 
 * src : 블록 코딩에서 필요한 블록 작성 시 필요한 라이브러리의 cpp 소스 코드 
 * js : 자바스크립트 소스로 아두이노 업로드 형태로 사용할 경우는 필요없음. 
